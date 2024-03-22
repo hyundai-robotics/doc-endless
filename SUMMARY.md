@@ -3,7 +3,6 @@
 * [Hi6 로봇제어기 기능설명서 - 엔드리스](README.md)
 * [1. 개요](1-intro/README.md)
 * [2. 시스템 설정](2-system-setting/README.md)
-  * [2.1 환경 설정](2-system-setting/2-1-env-setting.md)
 * [3. 엔드리스 기능](3-endless/README.md)
   * [3.1 endless 명령어](3-endless/3-1-command.md)
   * [3.2 R 코드](3-endless/3-2-rcode/README.md)
