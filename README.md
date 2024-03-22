@@ -11,5 +11,5 @@
 
 
 
-**Copyright ⓒ 2020 by Hyundai Robotics**
+**Copyright ⓒ 2024 by HD Hyundai Robotics**
 {% endhint %}
