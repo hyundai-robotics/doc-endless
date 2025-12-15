@@ -26,22 +26,22 @@
 	},
 	{
 		"link": "3-endless/3-2-rcode/README.md",
-		"char_ofs": 5783,
-		"byte_ofs": 5978
+		"char_ofs": 5793,
+		"byte_ofs": 5974
 	},
 	{
 		"link": "3-endless/3-2-rcode/1-r350-manual-reset.md",
-		"char_ofs": 6010,
-		"byte_ofs": 6213
+		"char_ofs": 6020,
+		"byte_ofs": 6209
 	},
 	{
 		"link": "3-endless/3-2-rcode/2-r354-manual-zero.md",
-		"char_ofs": 6464,
-		"byte_ofs": 6676
+		"char_ofs": 6474,
+		"byte_ofs": 6672
 	},
 	{
 		"link": "3-endless/3-3-error-code.md",
-		"char_ofs": 6928,
-		"byte_ofs": 7150
+		"char_ofs": 6938,
+		"byte_ofs": 7146
 	}
 ]

@@ -53,7 +53,7 @@ This function allows an axis configured as an R1 axis or a jig axis to rotate be
 
 {% endhint %}
 # 3. Endless Features
-# 3.1 endless 명령어
+# 3.1 endless command
 
 ### Description
 - While moving to the next step, rotate the axis configured as endless by the specified number of revolutions.
@@ -69,7 +69,7 @@ endless reset
 endless zero
 ```
 
-### 파라미터
+### Parameters
 <table>
 <thead>
     <tr>
