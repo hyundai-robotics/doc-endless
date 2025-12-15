@@ -1,73 +1,70 @@
-﻿# Hi6 로봇제어기 기능설명서 - 엔드리스
+﻿# Hi6 Robot Controller Function Manual - Endless
 
 {% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
+The information in this product manual is the property of HD Hyundai Robotics.
 
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
+No part of this manual may be reproduced or redistributed without prior written consent from HD Hyundai Robotics. It may not be provided to third parties or used for other purposes.
 
-
-
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
-
+This manual is subject to change without notice.
 
 **Copyright ⓒ 2024 by HD Hyundai Robotics**
 {% endhint %}
-# 1. 개요
+
+```
+# 1. Overview
 
 {% hint style="info" %}
-V60.26-00 부터 지원됩니다.
+Supported from V60.26-00.
 {% endhint %}
 
-본 기능은 로봇의 R1 축 또는 JIG축으로 설정된 부가축에 대해서 소프트리밋을 초과하는 회전이 가능하도록 하는 기능입니다. 이 기능은 크게 세가지 용도로 사용할 수 있습니다. 
+This function allows an axis configured as an R1 axis or a jig axis to rotate beyond the software soft-limit. It has three main uses:
 
-첫째는 로봇 JOB 프로그램에서 지정된 스텝의 위치를 기준으로하여 회전수를 지정하는 방법입니다. JOB 프로그램 상단에 회전량을 설정하고 구동하면 그 횟수만큼만 축이 회전하는 JOB 프로그램을 만들 수 있습니다. 
+1. Specify a number of rotations relative to a position in a robot JOB program. By setting the rotation count and running it, the specified axis will rotate the exact number of turns.
 
-두 번째로 ± 180 deg를 초과한 엔드리스 회전축을 ± 180 deg 이내의 회전각으로 환산하는 기능입니다. 예를 들어 360 deg 회전되어 있는 축은 물리적으로 0 deg와 동일합니다. 이때 엔드리스 리셋 기능은 축을 0 deg 위치로 이동시킬 때 역회전을 시키지 않는 편리한 기능입니다.
+2. Convert an endless axis that has rotated beyond ±180° into an equivalent angle within ±180°. For example, an axis rotated to 360° is physically equivalent to 0°. The endless reset function is convenient because it avoids reverse rotation when moving the axis to the 0° position.
 
-마지막으로 엔드리스 회전축을 0 deg로 설정하는 기능입니다. 이 엔드리스 제로 기능은 엔드리스 회전 축의 절대 위치는 상관 없이 현재 위치를 0 deg로 설정하고자 할 때 사용하는 기능입니다. 따라서 엔드리스 리셋 기능과 유사하나 물리적인 축의 절대 위치는 유지하지 않고 현재의 위치를 0으로 변경합니다.
+3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis’s absolute position, it changes the current position to zero.
 
 
-- 기능의 특징 
+- Features
 
-    (1) 엔드리스 회전수의 간편한 지정(전용함수 지원) <br>
-    (2) R1축 엔드리스 회전시 직선 보간지원(단, 툴의 X,Y방향은 내부적으로 0으로 설정됨)<br>
-    (3) 소프트리밋을 범위를 벗어나는 범위의 회전이 가능<br>
-    (4) 스텝도달시, 정지시의 자동 리셋기능<br>
-    (5) 1회전 이내의 각도로 변환하는 엔드리스 리셋 전용 함수 제공<br>
+    (1) Easy specification of endless rotation count (dedicated function supported)
+    (2) Linear interpolation support when R1 axis performs endless rotation (tool X/Y internally set to 0)
+    (3) Rotation beyond soft-limit range allowed
+    (4) Automatic reset when step is reached or on stop
+    (5) Dedicated reset function to convert to an angle within one revolution
 
-![](../_assets/image_1.png)# 2. 시스템 설정
+![](../_assets/image_1.png)# 2. System Settings
 
-1.	[**시스템 > 초기화 > 메커니즘 설정**]메뉴에서 엔드리스 축을 설정합니다. 엔드리스 축으로 사용하고자 하는 축을 엔드리스 '유효'로 설정을 변경합니다. 엔드리스 축은 축 사양에 따라 선택이 가능하지 않을 수 있습니다. 
+1. In [**System > Initialize > Mechanism Settings**], configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
 
-2.	축 사양이 '로봇'인 경우 'R1'축이 엔드리스 축으로 설정이 가능하고, 부가축인 경우 축 사양이 '지그' 또는 '포지셔너'일 때 엔드리스를 유효로 설정할 수 있습니다.
+2. If the axis type is "Robot", the R1 axis can be set as an endless axis. For additional axes, set endless to enabled when the axis type is "Jig" or "Positioner".
 
-3.	설정이 완료되었으면 완료 키를 누릅니다.<br>
+3. After completing settings, press the OK key.<br>
 ![](../_assets/image_2.png)
 
-4.	제어기를 재부팅하면 엔드리스 축 설정이 적용됩니다.
+4. Reboot the controller to apply the endless axis setting.
 
 <br>
 
-{% hint style="info" %} 
-1.	본 기능은 제어기를 재부팅할 때 엔드리스 축에 대해서 -180~180deg로 자동 환산하여 축의 위치를 변경합니다.
-2.	백업된 프로젝트 파일로 제어기를 복구하고자 할 때에는 엔드리스 축의 물리적인 위치는 복구할 수 없으므로, 엔코더 옵셋 및 축정수 위치를 다시 설정하여 주십시오.
+{% hint style="info" %}
+1. When the controller reboots, the endless axis positions are automatically converted to values within -180~180°.
+2. If you restore the controller from a backed-up project file, the physical positions of endless axes cannot be restored. Reconfigure the encoder offsets and axis calibration values.
 
 {% endhint %}
-# 3. 엔드리스 기능
-
+# 3. Endless Features
 # 3.1 endless 명령어
 
-### 설명
-- 다음 스텝으로 이동하면서 엔드리스로 설정된 축을 지정한 회전수만큼 회전시킬 수 있습니다.
-- 엔드리스 축의 물리적인 위치를 보전하면서 -180~180deg 이내의 각도로 환산할 수 있습니다.
-- 엔드리스 축의 물리적인 위치를 무시하고 현재의 위치를 0deg 또는 지정한 각도로 설정할 수 있습니다.
+### Description
+- While moving to the next step, rotate the axis configured as endless by the specified number of revolutions.
+- Convert the endless axis position to an angle within -180~180° while preserving the axis's physical position.
+- Set the current position to 0° or a specified angle, ignoring the axis's physical position.
 
-### 문법
+### Syntax
 
 ```python
-endless turn,axis=<축 번호>,count=<회전 수>
-endless change,axis=<축 번호>,value=<축 각도>
+endless turn,axis=<axis number>,count=<rotation count>
+endless change,axis=<axis number>,value=<axis angle>
 endless reset
 endless zero
 ```
@@ -76,96 +73,96 @@ endless zero
 <table>
 <thead>
     <tr>
-    <th style="text-align:left">항목</th>
-    <th style="text-align:left">의미</th>
-    <th style="text-align:left">기타</th>
+    <th style="text-align:left">Parameter	</th>
+    <th style="text-align:left">Description</th>
+    <th style="text-align:left">Remarks</th>
     </tr>
 </thead>
 <tbody>
     <tr>
-    <td style="text-align:left">동작</td>
+    <td style="text-align:left">Action</td>
     <td style="text-align:left">
-        - turn: 다음 스텝으로 이동할 때 엔드리스 축을 지정한 회전 수만큼 회전<br>
-        - change: 엔드리스 축의 현재 위치를 지정한 축 각도로 설정<br>
-        - reset: 엔드리스 축의 현재 위치를 -180~180deg이내의 각도로 환산<br>
-        - zero: 엔드리스 축의 현재 위치를 0deg로 설정
+        - turn: Rotate the endless axis by the specified number of revolutions when moving to the next step<br>
+        - change: Set the current position of the endless axis to the specified angle<br>
+        - reset: Convert the current position of the endless axis to an angle within -180~180°<br>
+        - zero: Set the current position of the endless axis to 0°
     </td>
-    <td style="text-align:left">문자열</td>
+    <td style="text-align:left">string</td>
     </tr>
 </tbody>
 <tbody>
     <tr>
-    <td style="text-align:left">축 번호</td>
+    <td style="text-align:left">Axis number</td>
     <td style="text-align:left">
-        엔드리스 기능을 사용할 축 번호
+                Axis number to apply the endless feature
     </td>
-    <td style="text-align:left">변수</td>
+    <td style="text-align:left">variable</td>
     </tr>
 </tbody>
 <tbody>
     <tr>
-    <td style="text-align:left">회전 수</td>
+    <td style="text-align:left">Rotation count</td>
     <td style="text-align:left">
-        엔드리스 축을 회전할 회전 수
+        Number of revolutions to rotate the endless axis
     </td>
-    <td style="text-align:left">변수(-10000~10000)</td>
+    <td style="text-align:left">variable  (-10000~10000)</td>
     </tr>
 </tbody>
     <tbody>
     <tr>
-    <td style="text-align:left">축 각도</td>
+    <td style="text-align:left">Axis angle</td>
     <td style="text-align:left">
-        엔드리스 축의 현재 위치로 설정할 축 각도
+        Angle to set as the current position for the endless axis
     </td>
-    <td style="text-align:left">변수</td>
+    <td style="text-align:left">variable</td>
     </tr>
 </tbody>
 </table>
 
 {% hint style="info" %} 
 
-회전 수는 해당 축이름의 1회에 회전할 회전수를 설정합니다. (-10000~10000회전)
-회전수는 축의 감속비에 따라 설정가능한 범위가 달라집니다. 통상적으로 R1축의 경우 1000회전 설정은 문제가 없습니다. 그러나 그 이상으로 설정하는 경우 프로그램을 기동할 때 endless 명령에서 'E0173 엔드리스 회전량의 오버플로우' 에러가 발생할 수 있습니다. 이 경우 1회에 회전할 수 있는 회전량의 범위를 벗어난 것이므로 줄여서 설정해야 합니다.
+Rotation count specifies how many revolutions the selected axis will rotate during step movement(–10,000 to 10,000 revolutions).
+The allowable range depends on the axis reduction ratio. Typically, setting 1000 revolutions for R1 is acceptable. If you set more than this, the endless command may raise `E0173 Endless rotation overflow` when operating the program. In that case, reduce the specified count.
 
 {% endhint %}
 
 
 
-### 사용 예
+### Example
 ```python
 S1  move P,spd=100%,accu=1,tool=1 
 S2  move P,spd=30%,accu=5,tool=1  
-    endless turn,axis=6,count=10        # 6축을 10회전 지정
-S3  move L,spd=30%,accu=1,tool=1        # S3로 이동할 때 6축을 10회전하면서 이동
-    endless change,axis=6,value=750     # 6축을 750deg로 설정
+    endless turn,axis=6,count=10        # Specify 10 revolutions for axis 6
+S3  move L,spd=30%,accu=1,tool=1        # Move to S3 while rotating axis 6 by 10 revolutions
+    endless change,axis=6,value=750     # Set axis 6 to 750°
 S4  move L,spd=30%,accu=1,tool=1  
-    endless reset                       # 모든 엔드리스 축을  -180~180deg 이내의 각도로 환산
+    endless reset                       # Convert all endless axes to angles within -180~180°
 S5  move L,spd=30%,accu=1,tool=1  
-    endless zero                        # 모든 엔드리스 축을 0deg로 설정
+    endless zero                        # Set all endless axes to 0°
 S6  move L,spd=30%,accu=1,tool=1  
     end
-```# 3.2 R코드
+```# 3.2 R Code
 
-엔드리스 기능에서 지원하는 R코드 기능입니다. R코드의 기본적인 사용 방법은 하기 링크를 참고하십시오.
+R code functions supported by the endless feature. For basic usage of R code, see the following link:
 
-[R코드 기본 사용법](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/1-use-r-code)# 3.2.1 R350 엔드리스축 수동 리셋
-R350 코드에 의한 수동 리셋 기능은 로봇이 정지하고 있을 때 프로그램 명령(endless reset)을 대신하여 사용자가 수동 혹은 자동모드에서 리셋하고자 할 때 사용합니다.
+[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/1-use-r-code)
+# 3.2.1 R350 Manual Reset of Endless Axis
+The manual reset using the R350 code is used when the robot is stopped and the user wants to reset instead of executing the program command (`endless reset`). It can be used in manual or automatic mode.
 
-|         **R코드**     |         **파라미터**  |        **설명**       |
-| :-------------------: | :-------------------: | :-------------------: |
-| R350                  |        0              | 모든 축에 대한 리셋    |
-| R350                  |   엔드리스 축 번호     | 지정한 축에 대한 리셋  |# 3.2.2 R354 엔드리스 Zero 실행
-R354 코드에 의한 수동 제로 기능은 로봇이 정지하고 있을 때 프로그램 명령(endless zero)을 대신하여 수동 혹은 자동모드에서 사용자가 축 위치를 0deg로 설정하고자 할 때 사용합니다.
+| **R Code** | **Parameter** | **Description** |
+| :--------: | :-----------: | :------------- |
+| R350       | 0             | Reset all axes |
+| R350       | endless axis number | Reset the specified axis |# 3.2.2 R354 Execute Endless Zero
+The manual zero using the R354 code is used when the robot is stopped and the user wants to set the axis position to 0° instead of executing the program command (`endless zero`). It can be used in manual or automatic mode.
 
-|         **R코드**     |         **파라미터**  |        **설명**       |
-| :-------------------: | :-------------------: | :-------------------: |
-| R354                  |        0              | 모든 축에 대한 Zero    |
-| R354                  |   엔드리스 축 번호     | 지정한 축에 대한 Zero  |# 3.3 에러 코드
+| **R Code** | **Parameter** | **Description** |
+| :--------: | :-----------: | :------------- |
+| R354       | 0             | Zero all axes |
+| R354       | endless axis number | Zero the specified axis |# 3.3 Error Codes
 
-
-| **에러번호** |    **에러 메시지**  |    **설명**  |
-| :------: | :------------------------: |  :------------------------: | 
-|   E0108   | (0축)엔코더이상:엔코더 리셋 필요   | 엔코더가 사용할 수 없는 범위에 있습니다 엔코더 옵셋 보정을 다시 하여 사용하십시오.|
-|   E0172   | (0축) 엔드리스 회전위치 이상   | 초기화시에 발생하는 에러로 백업되어 있는 현재 엔코더의 위치와 전원을 켜고 절대치 엔코더 값을 읽었을 때의 차이가 0x20000이상인 경우에 에러가 발생하게 됩니다. <br>이 에러가 발생하면 해당축의 엔코더 옵셋 보정을 다시 해야 합니다.|
-|   E0173   | 엔드리스 회전량의 오버플로우   | 소프트웨어로 처리할 수 있는 유효숫자를 초과하는 회전량을 지정하였습니다. 감속비가 큰 경우에는 1000회전 미만의 회전량이라 할지라도 한번에 회전이 불가능할 수 있습니다. endless 명령에 지정한 회전수를 낮추어 사용하십시오.| 
-|   E0193   | (0축)엔드리스 지원않는 엔코더타입  | 모터 1회전당 1024, 2048, 4096, 8192 펄스인 엔코더만 엔드리스 기능을 지원하도록 소프트웨어 처리가 되어 있습니다. 그 외의 엔코더는 지원하지 않습니다.| 
+| **Error** | **Message** | **Description** |
+| :------: | :---------: | :------------- |
+| E0108 | (axis 0) Encoder error: Encoder reset required | The encoder is out of usable range. Please correct the encoder offset and try again. |
+| E0172 | (axis 0) Endless rotation position error | This error occurs during initialization when the difference between the backed-up encoder position and the absolute encoder value read at power-on is greater than 0x20000. If this error occurs, re-calibrate the encoder offset for the axis. |
+| E0173 | Endless rotation overflow | A rotation amount exceeding the software's significant digits was specified. For large reduction ratio, even rotation counts below 1000 may be impossible to perform at once. Reduce the rotation count specified in the endless command. |
+| E0193 | (axis 0) Encoder type not supported for endless | Only encoders with 1024, 2048, 4096, or 8192 pulses per motor revolution are supported by the endless feature. Other encoder types are not supported. |

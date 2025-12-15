@@ -1,5 +1,5 @@
-﻿# 3.2 R코드
+﻿# 3.2 R Code
 
-엔드리스 기능에서 지원하는 R코드 기능입니다. R코드의 기본적인 사용 방법은 하기 링크를 참고하십시오.
+R code functions supported by the endless feature. For basic usage of R code, see the following link:
 
-[R코드 기본 사용법](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/1-use-r-code)
+[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/1-use-r-code)

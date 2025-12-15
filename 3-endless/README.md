@@ -1,2 +1,1 @@
-﻿# 3. 엔드리스 기능
-
+﻿# 3. Endless Features

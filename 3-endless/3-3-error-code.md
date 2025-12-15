@@ -1,9 +1,8 @@
-﻿# 3.3 에러 코드
+﻿# 3.3 Error Codes
 
-
-| **에러번호** |    **에러 메시지**  |    **설명**  |
-| :------: | :------------------------: |  :------------------------: | 
-|   E0108   | (0축)엔코더이상:엔코더 리셋 필요   | 엔코더가 사용할 수 없는 범위에 있습니다 엔코더 옵셋 보정을 다시 하여 사용하십시오.|
-|   E0172   | (0축) 엔드리스 회전위치 이상   | 초기화시에 발생하는 에러로 백업되어 있는 현재 엔코더의 위치와 전원을 켜고 절대치 엔코더 값을 읽었을 때의 차이가 0x20000이상인 경우에 에러가 발생하게 됩니다. <br>이 에러가 발생하면 해당축의 엔코더 옵셋 보정을 다시 해야 합니다.|
-|   E0173   | 엔드리스 회전량의 오버플로우   | 소프트웨어로 처리할 수 있는 유효숫자를 초과하는 회전량을 지정하였습니다. 감속비가 큰 경우에는 1000회전 미만의 회전량이라 할지라도 한번에 회전이 불가능할 수 있습니다. endless 명령에 지정한 회전수를 낮추어 사용하십시오.| 
-|   E0193   | (0축)엔드리스 지원않는 엔코더타입  | 모터 1회전당 1024, 2048, 4096, 8192 펄스인 엔코더만 엔드리스 기능을 지원하도록 소프트웨어 처리가 되어 있습니다. 그 외의 엔코더는 지원하지 않습니다.| 
+| **Error** | **Message** | **Description** |
+| :------: | :---------: | :------------- |
+| E0108 | (axis 0) Encoder error: Encoder reset required | The encoder is out of usable range. Please correct the encoder offset and try again. |
+| E0172 | (axis 0) Endless rotation position error | This error occurs during initialization when the difference between the backed-up encoder position and the absolute encoder value read at power-on is greater than 0x20000. If this error occurs, re-calibrate the encoder offset for the axis. |
+| E0173 | Endless rotation overflow | A rotation amount exceeding the software's significant digits was specified. For large reduction ratio, even rotation counts below 1000 may be impossible to perform at once. Reduce the rotation count specified in the endless command. |
+| E0193 | (axis 0) Encoder type not supported for endless | Only encoders with 1024, 2048, 4096, or 8192 pulses per motor revolution are supported by the endless feature. Other encoder types are not supported. |
