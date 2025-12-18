@@ -1,4 +1,4 @@
-﻿# Hi6 Robot Controller Function Manual - Endless
+﻿# ${cont_model} Robot Controller Function Manual - Endless
 
 {% hint style="warning" %}
 The information in this product manual is the property of HD Hyundai Robotics.

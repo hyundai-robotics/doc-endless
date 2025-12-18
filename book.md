@@ -1,4 +1,4 @@
-﻿# Hi6 Robot Controller Function Manual - Endless
+﻿# ${cont_model} Robot Controller Function Manual - Endless
 
 {% hint style="warning" %}
 The information in this product manual is the property of HD Hyundai Robotics.
@@ -145,7 +145,7 @@ S6  move L,spd=30%,accu=1,tool=1
 
 R code functions supported by the endless feature. For basic usage of R code, see the following link:
 
-[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/1-use-r-code)
+[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/1-use-r-code)
 # 3.2.1 R350 Manual Reset of Endless Axis
 The manual reset using the R350 code is used when the robot is stopped and the user wants to reset instead of executing the program command (`endless reset`). It can be used in manual or automatic mode.
 

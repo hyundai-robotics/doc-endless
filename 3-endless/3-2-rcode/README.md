@@ -2,4 +2,4 @@
 
 R code functions supported by the endless feature. For basic usage of R code, see the following link:
 
-[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/1-use-r-code)
+[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/1-use-r-code)

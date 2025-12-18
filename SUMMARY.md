@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [Hi6 Robot Controller Function Manual - Endless](README.md)
+* [${cont_model} Robot Controller Function Manual - Endless](README.md)
 * [1. Overview](1-intro/README.md)
 * [2. System Settings](2-system-setting/README.md)
 * [3. Endless Features](3-endless/README.md)

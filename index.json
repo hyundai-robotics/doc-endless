@@ -6,42 +6,42 @@
 	},
 	{
 		"link": "1-intro/README.md",
-		"char_ofs": 453,
-		"byte_ofs": 471
+		"char_ofs": 463,
+		"byte_ofs": 481
 	},
 	{
 		"link": "2-system-setting/README.md",
-		"char_ofs": 1846,
-		"byte_ofs": 1901
+		"char_ofs": 1856,
+		"byte_ofs": 1911
 	},
 	{
 		"link": "3-endless/README.md",
-		"char_ofs": 2732,
-		"byte_ofs": 2809
+		"char_ofs": 2742,
+		"byte_ofs": 2819
 	},
 	{
 		"link": "3-endless/3-1-command.md",
-		"char_ofs": 2754,
-		"byte_ofs": 2835
+		"char_ofs": 2764,
+		"byte_ofs": 2845
 	},
 	{
 		"link": "3-endless/3-2-rcode/README.md",
-		"char_ofs": 5793,
-		"byte_ofs": 5974
+		"char_ofs": 5803,
+		"byte_ofs": 5984
 	},
 	{
 		"link": "3-endless/3-2-rcode/1-r350-manual-reset.md",
-		"char_ofs": 6020,
-		"byte_ofs": 6209
+		"char_ofs": 6044,
+		"byte_ofs": 6233
 	},
 	{
 		"link": "3-endless/3-2-rcode/2-r354-manual-zero.md",
-		"char_ofs": 6474,
-		"byte_ofs": 6672
+		"char_ofs": 6498,
+		"byte_ofs": 6696
 	},
 	{
 		"link": "3-endless/3-3-error-code.md",
-		"char_ofs": 6938,
-		"byte_ofs": 7146
+		"char_ofs": 6962,
+		"byte_ofs": 7170
 	}
 ]
