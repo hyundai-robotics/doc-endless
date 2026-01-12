@@ -1,11 +1,12 @@
 {
     "langCode": "en",
-    "series": "Hyundai Robot ${cont_model} Controller",
-    "title": "Endless",
+    "series": "${cont_model} Controller",
+    "title": "Function Manual - Endless",
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Table of Contents",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
-    "variables": {
-        "cont_model": "Hi6"
-    }
+    "docId": "${cont_model:upper}ENDLESS_EN_001",
+    "references": [
+        { "rpath" : "doc-hi6-operation/en-tp630" }
+    ]
 }
