@@ -66,7 +66,7 @@ endless zero
 
 {% hint style="info" %} 
 
-Rotation count specifies how many revolutions the selected axis will rotate during step movement(–10,000 to 10,000 revolutions).
+Rotation count specifies how many revolutions the selected axis will rotate during step movement(-10,000 to 10,000 revolutions).
 The allowable range depends on the axis reduction ratio. Typically, setting 1000 revolutions for R1 is acceptable. If you set more than this, the endless command may raise `E0173 Endless rotation overflow` when operating the program. In that case, reduce the specified count.
 
 {% endhint %}

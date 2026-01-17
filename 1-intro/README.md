@@ -10,7 +10,7 @@ This function allows an axis configured as an R1 axis or a jig axis to rotate be
 
 2. Convert an endless axis that has rotated beyond ±180° into an equivalent angle within ±180°. For example, an axis rotated to 360° is physically equivalent to 0°. The endless reset function is convenient because it avoids reverse rotation when moving the axis to the 0° position.
 
-3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis’s absolute position, it changes the current position to zero.
+3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis's absolute position, it changes the current position to zero.
 
 
 - Features

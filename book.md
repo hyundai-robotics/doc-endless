@@ -1,4 +1,6 @@
-﻿# ${cont_model} Robot Controller Function Manual - Endless
+﻿
+[__SOURCE](README.md)
+# ${cont_model} Robot Controller Function Manual - Endless
 
 {% hint style="warning" %}
 The information in this product manual is the property of HD Hyundai Robotics.
@@ -11,6 +13,8 @@ This manual is subject to change without notice.
 {% endhint %}
 
 ```
+
+[__SOURCE](1-intro/README.md)
 # 1. Overview
 
 {% hint style="info" %}
@@ -23,7 +27,7 @@ This function allows an axis configured as an R1 axis or a jig axis to rotate be
 
 2. Convert an endless axis that has rotated beyond ±180° into an equivalent angle within ±180°. For example, an axis rotated to 360° is physically equivalent to 0°. The endless reset function is convenient because it avoids reverse rotation when moving the axis to the 0° position.
 
-3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis’s absolute position, it changes the current position to zero.
+3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis's absolute position, it changes the current position to zero.
 
 
 - Features
@@ -34,7 +38,9 @@ This function allows an axis configured as an R1 axis or a jig axis to rotate be
     (4) Automatic reset when step is reached or on stop
     (5) Dedicated reset function to convert to an angle within one revolution
 
-![](../_assets/image_1.png)# 2. System Settings
+![](../_assets/image_1.png)
+[__SOURCE](2-system-setting/README.md)
+# 2. System Settings
 
 1. In [**System > Initialize > Mechanism Settings**], configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
 
@@ -52,7 +58,11 @@ This function allows an axis configured as an R1 axis or a jig axis to rotate be
 2. If you restore the controller from a backed-up project file, the physical positions of endless axes cannot be restored. Reconfigure the encoder offsets and axis calibration values.
 
 {% endhint %}
+
+[__SOURCE](3-endless/README.md)
 # 3. Endless Features
+
+[__SOURCE](3-endless/3-1-command.md)
 # 3.1 endless command
 
 ### Description
@@ -121,7 +131,7 @@ endless zero
 
 {% hint style="info" %} 
 
-Rotation count specifies how many revolutions the selected axis will rotate during step movement(–10,000 to 10,000 revolutions).
+Rotation count specifies how many revolutions the selected axis will rotate during step movement(-10,000 to 10,000 revolutions).
 The allowable range depends on the axis reduction ratio. Typically, setting 1000 revolutions for R1 is acceptable. If you set more than this, the endless command may raise `E0173 Endless rotation overflow` when operating the program. In that case, reduce the specified count.
 
 {% endhint %}
@@ -141,24 +151,32 @@ S5  move L,spd=30%,accu=1,tool=1
     endless zero                        # Set all endless axes to 0°
 S6  move L,spd=30%,accu=1,tool=1  
     end
-```# 3.2 R Code
+```
+[__SOURCE](3-endless/3-2-rcode/README.md)
+# 3.2 R Code
 
 R code functions supported by the endless feature. For basic usage of R code, see the following link:
 
 [Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/1-use-r-code)
+
+[__SOURCE](3-endless/3-2-rcode/1-r350-manual-reset.md)
 # 3.2.1 R350 Manual Reset of Endless Axis
 The manual reset using the R350 code is used when the robot is stopped and the user wants to reset instead of executing the program command (`endless reset`). It can be used in manual or automatic mode.
 
 | **R Code** | **Parameter** | **Description** |
 | :--------: | :-----------: | :------------- |
 | R350       | 0             | Reset all axes |
-| R350       | endless axis number | Reset the specified axis |# 3.2.2 R354 Execute Endless Zero
+| R350       | endless axis number | Reset the specified axis |
+[__SOURCE](3-endless/3-2-rcode/2-r354-manual-zero.md)
+# 3.2.2 R354 Execute Endless Zero
 The manual zero using the R354 code is used when the robot is stopped and the user wants to set the axis position to 0° instead of executing the program command (`endless zero`). It can be used in manual or automatic mode.
 
 | **R Code** | **Parameter** | **Description** |
 | :--------: | :-----------: | :------------- |
 | R354       | 0             | Zero all axes |
-| R354       | endless axis number | Zero the specified axis |# 3.3 Error Codes
+| R354       | endless axis number | Zero the specified axis |
+[__SOURCE](3-endless/3-3-error-code.md)
+# 3.3 Error Codes
 
 | **Error** | **Message** | **Description** |
 | :------: | :---------: | :------------- |
