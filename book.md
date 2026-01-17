@@ -157,7 +157,7 @@ S6  move L,spd=30%,accu=1,tool=1
 
 R code functions supported by the endless feature. For basic usage of R code, see the following link:
 
-[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-${cont_model}-tp630/8-r-code/1-use-r-code)
+[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/1-use-r-code?cont_model=${cont_model})
 
 [__SOURCE](3-endless/3-2-rcode/1-r350-manual-reset.md)
 # 3.2.1 R350 Manual Reset of Endless Axis
