@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [${cont_model} 로봇제어기 기능설명서 - 엔드리스](README.md)
+* [${cont_model} 제어기 기능설명서 - 엔드리스](README.md)
 * [1. 개요](1-intro/README.md)
 * [2. 시스템 설정](2-system-setting/README.md)
 * [3. 엔드리스 기능](3-endless/README.md)
