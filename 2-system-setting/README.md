@@ -1,6 +1,6 @@
 ﻿# 2. System Settings
 
-1. In [**System > Initialize > Mechanism Settings**], configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
+1. In `[F2: System] - Initialize - Mechanism Settings`, configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
 
 2. If the axis type is "Robot", the R1 axis can be set as an endless axis. For additional axes, set endless to enabled when the axis type is "Jig" or "Positioner".
 

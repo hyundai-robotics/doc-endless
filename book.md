@@ -2,18 +2,6 @@
 [__SOURCE](README.md)
 # ${cont_model} Robot Controller Function Manual - Endless
 
-{% hint style="warning" %}
-The information in this product manual is the property of HD Hyundai Robotics.
-
-No part of this manual may be reproduced or redistributed without prior written consent from HD Hyundai Robotics. It may not be provided to third parties or used for other purposes.
-
-This manual is subject to change without notice.
-
-**Copyright ⓒ 2024 by HD Hyundai Robotics**
-{% endhint %}
-
-```
-
 [__SOURCE](1-intro/README.md)
 # 1. Overview
 
@@ -42,7 +30,7 @@ This function allows an axis configured as an R1 axis or a jig axis to rotate be
 [__SOURCE](2-system-setting/README.md)
 # 2. System Settings
 
-1. In [**System > Initialize > Mechanism Settings**], configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
+1. In `[F2: System] - Initialize - Mechanism Settings`, configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
 
 2. If the axis type is "Robot", the R1 axis can be set as an endless axis. For additional axes, set endless to enabled when the axis type is "Jig" or "Positioner".
 
