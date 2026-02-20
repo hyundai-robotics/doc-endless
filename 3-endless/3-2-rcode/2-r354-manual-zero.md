@@ -1,7 +1,7 @@
-﻿# 3.2.2 R354 Execute Endless Zero
-The manual zero using the R354 code is used when the robot is stopped and the user wants to set the axis position to 0° instead of executing the program command (`endless zero`). It can be used in manual or automatic mode.
+﻿# 3.2.2 R354 执行无尽归零
+使用 R354 代码的手动归零用于机器人停止时，用户希望将轴位置设置为 0° 而不是执行程序命令（`endless zero`）。它可以在手动或自动模式下使用。
 
-| **R Code** | **Parameter** | **Description** |
+| **R 代码** | **参数** | **描述** |
 | :--------: | :-----------: | :------------- |
-| R354       | 0             | Zero all axes |
-| R354       | endless axis number | Zero the specified axis |
+| R354       | 0             | 所有轴归零 |
+| R354       | 无尽轴编号 | 归零指定轴 |

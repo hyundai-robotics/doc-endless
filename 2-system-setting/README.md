@@ -1,18 +1,18 @@
-﻿# 2. System Settings
+# 2. 系统设置
 
-1. In `[F2: System] - Initialize - Mechanism Settings`, configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
+1. 在`[F2: 系统] - 5：初始化 - 机制设置 ([F2: System] - Initialize - Mechanism Settings)`中，配置无尽轴。检查该轴以启用其无尽操作。请注意，并非所有轴都可以根据轴规格设置为无尽。
 
-2. If the axis type is "Robot", the R1 axis can be set as an endless axis. For additional axes, set endless to enabled when the axis type is "Jig" or "Positioner".
+2. 如果轴类型为“机器人”，则R1轴可以设置为无尽轴。对于额外轴，设置无尽时，在轴类型为“夹具”或“定位器”时启用。
 
-3. After completing settings, press the OK key.<br>
+3. 设置完成后，按下确认键。<br>
 ![](../_assets/image_2.png)
 
-4. Reboot the controller to apply the endless axis setting.
+4. 重启控制器以应用无尽轴设置。
 
 <br>
 
 {% hint style="info" %}
-1. When the controller reboots, the endless axis positions are automatically converted to values within -180~180°.
-2. If you restore the controller from a backed-up project file, the physical positions of endless axes cannot be restored. Reconfigure the encoder offsets and axis calibration values.
+1. 当控制器重启时，无尽轴位置会自动转换为-180~180°范围内的值。
+2. 如果从备份的项目文件恢复控制器，则无尽轴的物理位置无法恢复。请重新配置编码器偏移和轴校准值。
 
 {% endhint %}

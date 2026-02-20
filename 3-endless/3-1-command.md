@@ -1,11 +1,11 @@
-﻿# 3.1 endless command
+﻿# 3.1 无尽命令
 
-### Description
-- While moving to the next step, rotate the axis configured as endless by the specified number of revolutions.
-- Convert the endless axis position to an angle within -180~180° while preserving the axis's physical position.
-- Set the current position to 0° or a specified angle, ignoring the axis's physical position.
+### 描述
+- 在移动到下一个步骤时，按指定的旋转次数旋转配置为无尽的轴。
+- 在保持轴的物理位置的同时，将无尽轴的位置转换为 -180~180° 之间的角度。
+- 将当前位置设置为 0° 或指定角度，忽略轴的物理位置。
 
-### Syntax
+### 语法
 
 ```python
 endless turn,axis=<axis number>,count=<rotation count>
@@ -14,76 +14,77 @@ endless reset
 endless zero
 ```
 
-### Parameters
+### 参数
 <table>
 <thead>
     <tr>
-    <th style="text-align:left">Parameter	</th>
-    <th style="text-align:left">Description</th>
-    <th style="text-align:left">Remarks</th>
+    <th style="text-align:left">参数</th>
+    <th style="text-align:left">描述</th>
+    <th style="text-align:left">备注</th>
     </tr>
 </thead>
 <tbody>
     <tr>
-    <td style="text-align:left">Action</td>
+    <td style="text-align:left">行动</td>
     <td style="text-align:left">
-        - turn: Rotate the endless axis by the specified number of revolutions when moving to the next step<br>
-        - change: Set the current position of the endless axis to the specified angle<br>
-        - reset: Convert the current position of the endless axis to an angle within -180~180°<br>
-        - zero: Set the current position of the endless axis to 0°
+        - turn: 在移动到下一个步骤时，按指定的旋转次数旋转无尽轴<br>
+        - change: 将无尽轴的当前位置设置为指定角度<br>
+        - reset: 将无尽轴的当前位置转换为 -180~180° 之间的角度<br>
+        - zero: 将无尽轴的当前位置设置为 0°
     </td>
-    <td style="text-align:left">string</td>
+    <td style="text-align:left">字符串</td>
     </tr>
 </tbody>
 <tbody>
     <tr>
-    <td style="text-align:left">Axis number</td>
+    <td style="text-align:left">轴号</td>
     <td style="text-align:left">
-                Axis number to apply the endless feature
+                应用无尽功能的轴号
     </td>
-    <td style="text-align:left">variable</td>
+    <td style="text-align:left">变量</td>
     </tr>
 </tbody>
 <tbody>
     <tr>
-    <td style="text-align:left">Rotation count</td>
+    <td style="text-align:left">旋转次数</td>
     <td style="text-align:left">
-        Number of revolutions to rotate the endless axis
+```
+无限轴旋转的圈数
     </td>
-    <td style="text-align:left">variable  (-10000~10000)</td>
+    <td style="text-align:left">变量  (-10000~10000)</td>
     </tr>
 </tbody>
     <tbody>
     <tr>
-    <td style="text-align:left">Axis angle</td>
+    <td style="text-align:left">轴角</td>
     <td style="text-align:left">
-        Angle to set as the current position for the endless axis
+        设置为无限轴当前的位置的角度
     </td>
-    <td style="text-align:left">variable</td>
+    <td style="text-align:left">变量</td>
     </tr>
 </tbody>
 </table>
 
 {% hint style="info" %} 
 
-Rotation count specifies how many revolutions the selected axis will rotate during step movement(-10,000 to 10,000 revolutions).
-The allowable range depends on the axis reduction ratio. Typically, setting 1000 revolutions for R1 is acceptable. If you set more than this, the endless command may raise `E0173 Endless rotation overflow` when operating the program. In that case, reduce the specified count.
+旋转计数指定所选轴在步进运动期间将旋转多少圈（-10,000 到 10,000 圈）。
+允许的范围取决于轴的减速比。通常，设置 R1 为 1000 圈是可以的。如果设置超过这个值， 无限指令在程序运行时可能会引发 `E0173 Endless rotation overflow`。在这种情况下，请减少指定的计数。
 
 {% endhint %}
 
 
 
-### Example
+### 示例
 ```python
 S1  move P,spd=100%,accu=1,tool=1 
 S2  move P,spd=30%,accu=5,tool=1  
-    endless turn,axis=6,count=10        # Specify 10 revolutions for axis 6
-S3  move L,spd=30%,accu=1,tool=1        # Move to S3 while rotating axis 6 by 10 revolutions
-    endless change,axis=6,value=750     # Set axis 6 to 750°
+    endless turn,axis=6,count=10        # 指定轴 6 旋转 10 圈
+S3  move L,spd=30%,accu=1,tool=1        # 在绕轴 6 旋转 10 圈的同时移动到 S3
+    endless change,axis=6,value=750     # 将轴 6 设置为 750°
 S4  move L,spd=30%,accu=1,tool=1  
-    endless reset                       # Convert all endless axes to angles within -180~180°
+    endless reset                       # 将所有无限轴转换为 -180~180° 内的角度
 S5  move L,spd=30%,accu=1,tool=1  
-    endless zero                        # Set all endless axes to 0°
+    endless zero                        # 将所有无限轴设置为 0°
 S6  move L,spd=30%,accu=1,tool=1  
     end
 ```

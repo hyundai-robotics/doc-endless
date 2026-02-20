@@ -1,69 +1,59 @@
 ﻿
-[__SOURCE](README.md)
-# ${cont_model} Robot Controller Function Manual - Endless
-
-[__SOURCE](0-about-this-manual/precautions.md)
-# Precautions
-
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
-
 [__SOURCE](1-intro/README.md)
-# 1. Overview
+# 1. 概述
 
 {% hint style="info" %}
-Supported from V60.26-00.
+支持从 V60.26-00 开始。
 {% endhint %}
 
-This function allows an axis configured as an R1 axis or a jig axis to rotate beyond the software soft-limit. It has three main uses:
+此功能允许配置为 R1 轴或夹具轴的轴在软件软限制之外旋转。它主要有三个用途：
 
-1. Specify a number of rotations relative to a position in a robot JOB program. By setting the rotation count and running it, the specified axis will rotate the exact number of turns.
+1. 指定相对于机器人 JOB 程序中位置的旋转次数。通过设置旋转计数并运行，指定轴将旋转确切的转数。
 
-2. Convert an endless axis that has rotated beyond ±180° into an equivalent angle within ±180°. For example, an axis rotated to 360° is physically equivalent to 0°. The endless reset function is convenient because it avoids reverse rotation when moving the axis to the 0° position.
+2. 将旋转超过 ±180° 的无限轴转换为 ±180° 内的等效角度。例如，旋转到 360° 的轴在物理上等同于 0°。无限重置功能很方便，因为它在将轴移动到 0° 位置时避免了反向旋转。
 
-3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis's absolute position, it changes the current position to zero.
+3. 将无限旋转轴设置为 0°。无限零功能将当前位置信息设置为 0°，而不考虑轴的绝对位置。它类似于无限重置功能。然而，它不是保存物理轴的绝对位置，而是将当前位置信息更改为零。
 
 
-- Features
+- 特点
 
-    (1) Easy specification of endless rotation count (dedicated function supported)
-    (2) Linear interpolation support when R1 axis performs endless rotation (tool X/Y internally set to 0)
-    (3) Rotation beyond soft-limit range allowed
-    (4) Automatic reset when step is reached or on stop
-    (5) Dedicated reset function to convert to an angle within one revolution
+    (1) 易于指定无限旋转计数（支持专用功能）
+    (2) 当 R1 轴执行无限旋转时支持线性插值（工具 X/Y 内部设置为 0）
+    (3) 允许超出软限制范围的旋转
+    (4) 达到步骤或停止时自动重置
+    (5) 专用重置功能将旋转转换为一次旋转内的角度
 
 ![](../_assets/image_1.png)
 [__SOURCE](2-system-setting/README.md)
-# 2. System Settings
+# 2. 系统设置
 
-1. In `[F2: System] - Initialize - Mechanism Settings`, configure the endless axis. Check the axis to enable it for endless operation. Note that not all axes can be set as endless depending on axis specifications.
+1. 在`[F2: 系统] - 5：初始化 - 机制设置 ([F2: System] - Initialize - Mechanism Settings)`中，配置无尽轴。检查该轴以启用其无尽操作。请注意，并非所有轴都可以根据轴规格设置为无尽。
 
-2. If the axis type is "Robot", the R1 axis can be set as an endless axis. For additional axes, set endless to enabled when the axis type is "Jig" or "Positioner".
+2. 如果轴类型为“机器人”，则R1轴可以设置为无尽轴。对于额外轴，设置无尽时，在轴类型为“夹具”或“定位器”时启用。
 
-3. After completing settings, press the OK key.<br>
+3. 设置完成后，按下确认键。<br>
 ![](../_assets/image_2.png)
 
-4. Reboot the controller to apply the endless axis setting.
+4. 重启控制器以应用无尽轴设置。
 
 <br>
 
 {% hint style="info" %}
-1. When the controller reboots, the endless axis positions are automatically converted to values within -180~180°.
-2. If you restore the controller from a backed-up project file, the physical positions of endless axes cannot be restored. Reconfigure the encoder offsets and axis calibration values.
+1. 当控制器重启时，无尽轴位置会自动转换为-180~180°范围内的值。
+2. 如果从备份的项目文件恢复控制器，则无尽轴的物理位置无法恢复。请重新配置编码器偏移和轴校准值。
 
 {% endhint %}
-
 [__SOURCE](3-endless/README.md)
-# 3. Endless Features
-
+# 3. 无尽的功能
 [__SOURCE](3-endless/3-1-command.md)
-# 3.1 endless command
+# 3.1 无尽命令
 
-### Description
-- While moving to the next step, rotate the axis configured as endless by the specified number of revolutions.
-- Convert the endless axis position to an angle within -180~180° while preserving the axis's physical position.
-- Set the current position to 0° or a specified angle, ignoring the axis's physical position.
+### 描述
+- 在移动到下一个步骤时，按指定的旋转次数旋转配置为无尽的轴。
+- 在保持轴的物理位置的同时，将无尽轴的位置转换为 -180~180° 之间的角度。
+- 将当前位置设置为 0° 或指定角度，忽略轴的物理位置。
 
-### Syntax
+### 语法
 
 ```python
 endless turn,axis=<axis number>,count=<rotation count>
@@ -72,108 +62,108 @@ endless reset
 endless zero
 ```
 
-### Parameters
+### 参数
 <table>
 <thead>
     <tr>
-    <th style="text-align:left">Parameter	</th>
-    <th style="text-align:left">Description</th>
-    <th style="text-align:left">Remarks</th>
+    <th style="text-align:left">参数</th>
+    <th style="text-align:left">描述</th>
+    <th style="text-align:left">备注</th>
     </tr>
 </thead>
 <tbody>
     <tr>
-    <td style="text-align:left">Action</td>
+    <td style="text-align:left">行动</td>
     <td style="text-align:left">
-        - turn: Rotate the endless axis by the specified number of revolutions when moving to the next step<br>
-        - change: Set the current position of the endless axis to the specified angle<br>
-        - reset: Convert the current position of the endless axis to an angle within -180~180°<br>
-        - zero: Set the current position of the endless axis to 0°
+        - turn: 在移动到下一个步骤时，按指定的旋转次数旋转无尽轴<br>
+        - change: 将无尽轴的当前位置设置为指定角度<br>
+        - reset: 将无尽轴的当前位置转换为 -180~180° 之间的角度<br>
+        - zero: 将无尽轴的当前位置设置为 0°
     </td>
-    <td style="text-align:left">string</td>
+    <td style="text-align:left">字符串</td>
     </tr>
 </tbody>
 <tbody>
     <tr>
-    <td style="text-align:left">Axis number</td>
+    <td style="text-align:left">轴号</td>
     <td style="text-align:left">
-                Axis number to apply the endless feature
+                应用无尽功能的轴号
     </td>
-    <td style="text-align:left">variable</td>
+    <td style="text-align:left">变量</td>
     </tr>
 </tbody>
 <tbody>
     <tr>
-    <td style="text-align:left">Rotation count</td>
+    <td style="text-align:left">旋转次数</td>
     <td style="text-align:left">
-        Number of revolutions to rotate the endless axis
+```
+无限轴旋转的圈数
     </td>
-    <td style="text-align:left">variable  (-10000~10000)</td>
+    <td style="text-align:left">变量  (-10000~10000)</td>
     </tr>
 </tbody>
     <tbody>
     <tr>
-    <td style="text-align:left">Axis angle</td>
+    <td style="text-align:left">轴角</td>
     <td style="text-align:left">
-        Angle to set as the current position for the endless axis
+        设置为无限轴当前的位置的角度
     </td>
-    <td style="text-align:left">variable</td>
+    <td style="text-align:left">变量</td>
     </tr>
 </tbody>
 </table>
 
 {% hint style="info" %} 
 
-Rotation count specifies how many revolutions the selected axis will rotate during step movement(-10,000 to 10,000 revolutions).
-The allowable range depends on the axis reduction ratio. Typically, setting 1000 revolutions for R1 is acceptable. If you set more than this, the endless command may raise `E0173 Endless rotation overflow` when operating the program. In that case, reduce the specified count.
+旋转计数指定所选轴在步进运动期间将旋转多少圈（-10,000 到 10,000 圈）。
+允许的范围取决于轴的减速比。通常，设置 R1 为 1000 圈是可以的。如果设置超过这个值， 无限指令在程序运行时可能会引发 `E0173 Endless rotation overflow`。在这种情况下，请减少指定的计数。
 
 {% endhint %}
 
 
 
-### Example
+### 示例
 ```python
 S1  move P,spd=100%,accu=1,tool=1 
 S2  move P,spd=30%,accu=5,tool=1  
-    endless turn,axis=6,count=10        # Specify 10 revolutions for axis 6
-S3  move L,spd=30%,accu=1,tool=1        # Move to S3 while rotating axis 6 by 10 revolutions
-    endless change,axis=6,value=750     # Set axis 6 to 750°
+    endless turn,axis=6,count=10        # 指定轴 6 旋转 10 圈
+S3  move L,spd=30%,accu=1,tool=1        # 在绕轴 6 旋转 10 圈的同时移动到 S3
+    endless change,axis=6,value=750     # 将轴 6 设置为 750°
 S4  move L,spd=30%,accu=1,tool=1  
-    endless reset                       # Convert all endless axes to angles within -180~180°
+    endless reset                       # 将所有无限轴转换为 -180~180° 内的角度
 S5  move L,spd=30%,accu=1,tool=1  
-    endless zero                        # Set all endless axes to 0°
+    endless zero                        # 将所有无限轴设置为 0°
 S6  move L,spd=30%,accu=1,tool=1  
     end
 ```
 [__SOURCE](3-endless/3-2-rcode/README.md)
-# 3.2 R Code
+# 3.2 R 代码
 
-R code functions supported by the endless feature. For basic usage of R code, see the following link:
+无限特性支持的 R 代码功能。有关 R 代码的基本用法，请参阅以下链接：
 
-[Basic R code usage](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/1-use-r-code?cont_model=${cont_model})
-
+[基本 R 代码用法](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/1-use-r-code?cont_model=${cont_model})
 [__SOURCE](3-endless/3-2-rcode/1-r350-manual-reset.md)
-# 3.2.1 R350 Manual Reset of Endless Axis
-The manual reset using the R350 code is used when the robot is stopped and the user wants to reset instead of executing the program command (`endless reset`). It can be used in manual or automatic mode.
+# 3.2.1 R350 手动重置无限轴
+使用 R350 代码的手动重置用于机器人停止时，用户希望进行重置而不是执行程序命令 (`endless reset`)。它可以在手动或自动模式下使用。
 
-| **R Code** | **Parameter** | **Description** |
+| **R 代码** | **参数** | **描述** |
 | :--------: | :-----------: | :------------- |
-| R350       | 0             | Reset all axes |
-| R350       | endless axis number | Reset the specified axis |
+| R350       | 0             | 重置所有轴 |
+| R350       | 无限轴编号 | 重置指定轴 |
 [__SOURCE](3-endless/3-2-rcode/2-r354-manual-zero.md)
-# 3.2.2 R354 Execute Endless Zero
-The manual zero using the R354 code is used when the robot is stopped and the user wants to set the axis position to 0° instead of executing the program command (`endless zero`). It can be used in manual or automatic mode.
+# 3.2.2 R354 执行无尽归零
+使用 R354 代码的手动归零用于机器人停止时，用户希望将轴位置设置为 0° 而不是执行程序命令（`endless zero`）。它可以在手动或自动模式下使用。
 
-| **R Code** | **Parameter** | **Description** |
+| **R 代码** | **参数** | **描述** |
 | :--------: | :-----------: | :------------- |
-| R354       | 0             | Zero all axes |
-| R354       | endless axis number | Zero the specified axis |
+| R354       | 0             | 所有轴归零 |
+| R354       | 无尽轴编号 | 归零指定轴 |
 [__SOURCE](3-endless/3-3-error-code.md)
-# 3.3 Error Codes
+# 3.3 错误代码
 
-| **Error** | **Message** | **Description** |
+| **错误** | **信息** | **描述** |
 | :------: | :---------: | :------------- |
-| E0108 | (axis 0) Encoder error: Encoder reset required | The encoder is out of usable range. Please correct the encoder offset and try again. |
-| E0172 | (axis 0) Endless rotation position error | This error occurs during initialization when the difference between the backed-up encoder position and the absolute encoder value read at power-on is greater than 0x20000. If this error occurs, re-calibrate the encoder offset for the axis. |
-| E0173 | Endless rotation overflow | A rotation amount exceeding the software's significant digits was specified. For large reduction ratio, even rotation counts below 1000 may be impossible to perform at once. Reduce the rotation count specified in the endless command. |
-| E0193 | (axis 0) Encoder type not supported for endless | Only encoders with 1024, 2048, 4096, or 8192 pulses per motor revolution are supported by the endless feature. Other encoder types are not supported. |
+| E0108 | (轴 0) 编码器错误：需要重置编码器 | 编码器超出可用范围。请纠正编码器偏移并重试。 |
+| E0172 | (轴 0) 无限旋转位置错误 | 当备份的编码器位置与开机时读取的绝对编码器值之间的差异大于 0x20000 时，会发生此错误。如果发生此错误，请重新校准该轴的编码器偏移。 |
+| E0173 | 无限旋转溢出 | 指定的旋转量超过软件的有效数字。对于大减速比，即使是少于 1000 的旋转计数也可能无法一次完成。减少无限命令中指定的旋转计数。 |
+| E0193 | (轴 0) 不支持的无限编码器类型 | 仅支持每转电机 1024、2048、4096 或 8192 脉冲的编码器。其他编码器类型不受支持。 |
