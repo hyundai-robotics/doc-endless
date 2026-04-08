@@ -62,16 +62,35 @@ endless zero
     <td style="text-align:left">variable</td>
     </tr>
 </tbody>
-</table>
+</table> 
 
-{% hint style="info" %} 
+### Description
 
-Rotation count specifies how many revolutions the selected axis will rotate during step movement(-10,000 to 10,000 revolutions).
-The allowable range depends on the axis reduction ratio. Typically, setting 1000 revolutions for R1 is acceptable. If you set more than this, the endless command may raise `E0173 Endless rotation overflow` when operating the program. In that case, reduce the specified count.
+#### Endless Turn Function(endless turn)
+- When moving to the next step, the axis set as "Endless" can be rotated by a specified number of turns.
 
-{% endhint %}
+{% hint style="info" %}  
 
+1. **Number of Rotations:** This refers to the number of turns the specified endless axis will perform while moving through the step. The configurable range of rotations varies depending on the axis's reduction ratio. Typically, setting 1,000 rotations for the R1 axis is not an issue. However, if the rotation amount exceeds the allowable limit for a single execution during program startup, the error **"E0173 Endless rotation amount overflow"** may occur.
+2. The function is only valid for the **first step immediately following** the `endless` function record. For subsequent steps, it must be specified again.
+3. The target position of the step is calculated as: **[Recorded Position + (Number of Rotations x 360°)]**.
+4. If multiple rotation counts are specified for the same axis, only the **final command** issued will be valid.
+5. The axis position is **automatically reset** once the target position of the endless step is reached. If the operation is stopped during an endless rotation, the current axis position is not automatically reset; upon restarting the step, the axis will complete the remaining rotation amount.
 
+{% endhint %}  
+  
+#### Endless Axis Angle Conversion (endless zero, endless change)
+- This function allows you to ignore the physical position of the endless axis and set the current position to **0 degree** or a **specifically designated axis angle**.
+
+#### Endless Axis Reset (endless reset)
+- This function converts the axis position to an angle within the range of **-180 to 180 degree (one rotation)** while preserving the physical position of the endless axis.
+
+{% endhint %} 
+
+1. If the rotation amount has not been reset (e.g., due to a stop during an endless rotation), the axis may perform an unnecessary reverse rotation when moving to the next step. Using the **Endless Axis Reset** function can prevent this behavior.
+
+{% endhint %}  
+  
 
 ### Example
 ```python
