@@ -1,7 +1,9 @@
 ﻿# Table of contents
 
 * [${cont_model} Robot Controller Function Manual - Endless](README.md)
-* [Precautions](0-about-this-manual/precautions.md)
+* [About the Manual](0-about-this-manual/README.md)
+  * [Precautions](0-about-this-manual/precautions.md)
+  * [Safety Cautions](0-about-this-manual/safety-notice.md)
 * [1. Overview](1-intro/README.md)
 * [2. System Settings](2-system-setting/README.md)
 * [3. Endless Features](3-endless/README.md)

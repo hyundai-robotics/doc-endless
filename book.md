@@ -2,10 +2,24 @@
 [__SOURCE](README.md)
 # ${cont_model} Robot Controller Function Manual - Endless
 
+[__SOURCE](0-about-this-manual/README.md)
+# About the Manual
+
+You must fully understand the contents of the manual before using the product. Moreover, keep the manual nearby so that you can refer to it whenever you need it.
+
+This manual may be provided as reference material for customers who have purchased HD Hyundai Robotics products or may be used as internal training material.
+
+This manual has been created based on standard specifications, so some contents may differ depending on the model of the product you have purchased. In addition, the contents and specifications of this manual are subject to change without prior notice to improve the performance of the product, and HD Hyundai Robotics is not responsible for situations that could be caused by inaccuracies or typos in the manual. For detailed information on the revision of the manual, you need to visit our internet website [https://www.hd-hyundairobotics.com/en/main](https://www.hd-hyundairobotics.com/en/main).
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
 {% include file="en/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# Safety Cautions
+
+{% include file="en/safety-notice.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -131,7 +145,7 @@ endless zero
 
 1. **Number of Rotations:** This refers to the number of turns the specified endless axis will perform while moving through the step. The configurable range of rotations varies depending on the axis's reduction ratio. Typically, setting 1,000 rotations for the R1 axis is not an issue. However, if the rotation amount exceeds the allowable limit for a single execution during program startup, the error **"E0173 Endless rotation amount overflow"** may occur.
 2. The function is only valid for the **first step immediately following** the `endless` function record. For subsequent steps, it must be specified again.
-3. The target position of the step is calculated as: **[Recorded Position + (Number of Rotations × 360°)]**.
+3. The target position of the step is calculated as: **[Recorded Position + (Number of Rotations x 360°)]**.
 4. If multiple rotation counts are specified for the same axis, only the **final command** issued will be valid.
 5. The axis position is **automatically reset** once the target position of the endless step is reached. If the operation is stopped during an endless rotation, the current axis position is not automatically reset; upon restarting the step, the axis will complete the remaining rotation amount.
 
