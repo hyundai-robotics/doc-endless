@@ -1,1 +1,1 @@
-﻿# ${cont_model} Robot Controller Function Manual - Endless
+# ${cont_model} 机器人控制器功能手册 - 无限

@@ -1,7 +1,7 @@
-﻿# 3.2.1 R350 Manual Reset of Endless Axis
-The manual reset using the R350 code is used when the robot is stopped and the user wants to reset instead of executing the program command (`endless reset`). It can be used in manual or automatic mode.
+﻿# 3.2.1 R350 手动复位无尽轴
+使用 R350 代码的手动复位适用于机器人停止时，用户希望重置而不是执行程序命令（`endless reset`）。它可以在手动或自动模式下使用。
 
-| **R Code** | **Parameter** | **Description** |
+| **R 代码** | **参数** | **描述** |
 | :--------: | :-----------: | :------------- |
-| R350       | 0             | Reset all axes |
-| R350       | endless axis number | Reset the specified axis |
+| R350       | 0             | 复位所有轴 |
+| R350       | endless axis number | 复位指定轴 |

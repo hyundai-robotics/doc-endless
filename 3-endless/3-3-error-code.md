@@ -1,8 +1,8 @@
-﻿# 3.3 Error Codes
+# 3.3 错误代码
 
-| **Error** | **Message** | **Description** |
+| **错误** | **消息** | **描述** |
 | :------: | :---------: | :------------- |
-| E0108 | (axis 0) Encoder error: Encoder reset required | The encoder is out of usable range. Please correct the encoder offset and try again. |
-| E0172 | (axis 0) Endless rotation position error | This error occurs during initialization when the difference between the backed-up encoder position and the absolute encoder value read at power-on is greater than 0x20000. If this error occurs, re-calibrate the encoder offset for the axis. |
-| E0173 | Endless rotation overflow | A rotation amount exceeding the software's significant digits was specified. For large reduction ratio, even rotation counts below 1000 may be impossible to perform at once. Reduce the rotation count specified in the endless command. |
-| E0193 | (axis 0) Encoder type not supported for endless | Only encoders with 1024, 2048, 4096, or 8192 pulses per motor revolution are supported by the endless feature. Other encoder types are not supported. |
+| E0108 | (轴 0) 编码器错误：需要重置编码器 | 编码器超出可用范围。请修正编码器偏移量并重试。 |
+| E0172 | (轴 0) 无限旋转位置错误 | 此错误在初始化期间发生，当备份的编码器位置与开机读取的绝对编码器值之间的差异大于 0x20000 时。如果发生此错误，请为该轴重新校准编码器偏移量。 |
+| E0173 | 无限旋转溢出 | 指定的旋转量超过了软件的有效数字。对于大减速比，即使是小于 1000 的旋转计数也可能无法一次性执行。减少无限命令中指定的旋转计数。 |
+| E0193 | (轴 0) 不支持无限的编码器类型 | 仅支持每转动电机 1024、2048、4096 或 8192 脉冲的编码器用于无限功能。不支持其他类型的编码器。 |

@@ -1,24 +1,23 @@
-﻿# 1. Overview
+# 1. 概述
 
 {% hint style="info" %}
-Supported from V60.26-00.
+支持从 V60.26-00。
 {% endhint %}
 
-This function allows an axis configured as an R1 axis or a jig axis to rotate beyond the software soft-limit. It has three main uses:
+此功能允许配置为 R1 轴或夹具轴的轴在软件软限制之外旋转。它主要有三个用途：
 
-1. Specify a number of rotations relative to a position in a robot JOB program. By setting the rotation count and running it, the specified axis will rotate the exact number of turns.
+1. 在机器人 JOB 程序中相对于某个位置指定旋转次数。通过设置旋转计数并运行，指定的轴将旋转确切的次数。
 
-2. Convert an endless axis that has rotated beyond ±180° into an equivalent angle within ±180°. For example, an axis rotated to 360° is physically equivalent to 0°. The endless reset function is convenient because it avoids reverse rotation when moving the axis to the 0° position.
+2. 将旋转超过 ±180° 的无限轴转换为 ±180° 内的等效角度。例如，旋转到 360° 的轴在物理上相当于 0°。无限重置功能非常方便，因为它避免了在将轴移动到 0° 位置时的反向旋转。
 
-3. Set the endless rotation axis to 0°. The endless zero function sets the current position to 0° regardless of the axis's absolute position. It is similar to endless reset function. However, instead of preserving the physical axis's absolute position, it changes the current position to zero.
+3. 将无限旋转轴设置为 0°。无限零功能将当前 posición 设置为 0°，无论轴的绝对位置如何。它类似于无限重置功能。但是，它不会保留物理轴的绝对位置，而是将当前位置更改为零。
 
+- 特点
 
-- Features
-
-    (1) Easy specification of endless rotation count (dedicated function supported)
-    (2) Linear interpolation support when R1 axis performs endless rotation (tool X/Y internally set to 0)
-    (3) Rotation beyond soft-limit range allowed
-    (4) Automatic reset when step is reached or on stop
-    (5) Dedicated reset function to convert to an angle within one revolution
+    (1) 易于指定无限旋转计数（支持专用功能）
+    (2) 当 R1 轴执行无限旋转时支持线性插值（工具 X/Y 内部设置为 0）
+    (3) 允许超出软限制范围的旋转
+    (4) 到达步骤时或停止时自动重置
+    (5) 专用重置功能将转换为一次旋转内的角度
 
 ![](../_assets/image_1.png)
